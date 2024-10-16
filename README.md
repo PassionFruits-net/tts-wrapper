@@ -33,3 +33,21 @@ Usage example:
 >>> type(s)
 pydub.audio_segment.AudioSegment
 ```
+
+## Adding back-ends
+
+To add a new back-end, make a python package that registers a new entrypoint that points to a python module:
+
+```python
+    entry_points = {
+        "tts_wrapper.engine": [
+            "mybackend = mypackage.mybackend"
+        ]
+    }
+```
+The module should provide two functions: `get_voices()` and `render(text, voice, **kw)`.
+
+`get_voices` should return a dictionary with keys that are voice names, suitable as values for the `voice` parameter of `render()`, and values that are dictionaries.
+These dictionaries can contain the keys `title` and `properties`, the latter being a json-schema of the optional parameters to `render()`.
+
+`render()` should return a single `pydub.audio_segment.AudioSegment` object.
