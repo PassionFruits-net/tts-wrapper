@@ -9,7 +9,7 @@ setup(
     install_requires = [
         "pydub",
         "soundfile",
-        "mellotts @ git+https://git@github.com/myshell-ai/MeloTTS.git",
+        "melotts @ git+https://git@github.com/myshell-ai/MeloTTS.git",
         "openai"
     ],
     version = "0.0.1",
