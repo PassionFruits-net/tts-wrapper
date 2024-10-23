@@ -10,7 +10,8 @@ setup(
         "pydub",
         "soundfile",
         "melotts @ git+https://git@github.com/myshell-ai/MeloTTS.git",
-        "openai"
+        "openai",
+        "elevenlabs"
     ],
     version = "0.0.1",
     author = "Egil Moeller",
@@ -21,7 +22,8 @@ setup(
     entry_points = {
         "tts_wrapper.engine": [
             "melotts = tts_wrapper.melotts",
-            "openai = tts_wrapper.openaitts"
+            "openai = tts_wrapper.openaitts",
+            "elevenlabs = tts_wrapper.elevenlabs"
         ]
     }
 )
