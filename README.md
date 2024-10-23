@@ -3,7 +3,12 @@
 `tts-wrapper` is a wrapper around multiple text-to-speech libraries, models and services, giving them a common, simple API. From the users perspective, the different back-ends appear as just different voices.
 All generated sound is converted to a [pydub AudioSegment](https://pydub.com/), no matter what the speech-to-text library natively returns, which makes appending sound generated with different back-ends easy.
 
-Usage example:
+# Installation
+
+* `pip instal .`
+* `python -m unidic download` (for melotts)
+
+# Usage example
 
 ```python
 >>> import tts_wrapper
