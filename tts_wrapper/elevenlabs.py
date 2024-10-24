@@ -12,7 +12,7 @@ def get_client():
 def get_voices():
     client = get_client()
     voices = client.voices.get_all().voices
-    return {voice.name: {"title": voice.name, "properties": {}} for voice in voices}
+    return {voice.name: {"title": voice.name, "properties": voice.dict()} for voice in voices}
 
 def render(text, voice, **kw):
     client = get_client()
