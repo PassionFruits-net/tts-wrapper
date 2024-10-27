@@ -7,6 +7,10 @@ All generated sound is converted to a [pydub AudioSegment](https://pydub.com/), 
 
 * `pip instal .`
 * `python -m unidic download` (for melotts)
+* `sudo apt install ffmpeg`
+* `python -m nltk.downloader averaged_perceptron_tagger_eng`
+
+Make sure to fill in your Eleven Labs and OpenAI API keys in _.env_ using _.env.template_ in _ttswrapper_
 
 # Usage example
 
