@@ -8,12 +8,21 @@ setup(
     description = "",
     install_requires = [
         "pydub",
-        "soundfile",
-        "melotts @ git+https://git@github.com/myshell-ai/MeloTTS.git",
-        "openai",
-        "elevenlabs"
     ],
-    version = "0.0.1",
+    extras_require={
+        "mellotts": [
+            "melotts @ git+https://git@github.com/myshell-ai/MeloTTS.git",
+            "soundfile"
+        ],
+        "openai": ["openai"],
+        "elevenlabs": ["elevenlabs"],
+        "all": [
+            "melotts @ git+https://git@github.com/myshell-ai/MeloTTS.git",
+            "soundfile",
+            "openai",
+            "elevenlabs"
+        ]
+    },
     author = "Egil Moeller",
     author_email = "redhog@redhog.org",
     license = "GPL",

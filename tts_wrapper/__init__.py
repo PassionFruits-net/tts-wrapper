@@ -1,12 +1,19 @@
+import warnings
 import importlib.metadata
 
 _entrypoints = None
 def get_entrypoints():
     global _entrypoints
     if not _entrypoints:
-        _entrypoints = {entrypoint.name: entrypoint.load()
-                        for entrypoint in importlib.metadata.entry_points(
-                                group="tts_wrapper.engine")}
+        _entrypoints = {}
+        for entrypoint in importlib.metadata.entry_points(
+                group="tts_wrapper.engine"):
+            try:
+                _entrypoints[entrypoint.name] = entrypoint.load()
+            except Exception as e:
+                w = RuntimeWarning("%s not supported: %s" % (entrypoint.name, e))
+                w.with_traceback(e.__traceback__)
+                warnings.warn(w)            
     return _entrypoints
 
 def get_voices():
